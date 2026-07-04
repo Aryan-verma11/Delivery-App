@@ -1,0 +1,257 @@
+/* src/styles/profile.css
+   Styles for the Delivery Profile page. */
+
+.profile-page {
+  padding: 24px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-page__title {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1b2430;
+  margin: 0;
+}
+
+/* ---------------- Layout: identity card + details card ---------------- */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ---------------- Identity card (photo, name, availability) ---------------- */
+
+.profile-identity-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+}
+
+.profile-identity-card__photo-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 14px;
+}
+
+.profile-identity-card__photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff8a3d;
+}
+
+.profile-identity-card__status-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
+
+.profile-identity-card__status-dot--online {
+  background-color: #0f766e;
+}
+
+.profile-identity-card__status-dot--offline {
+  background-color: #94a3b8;
+}
+
+.profile-identity-card__name {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #1b2430;
+  margin: 0 0 4px;
+}
+
+.profile-identity-card__id {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0 0 14px;
+}
+
+.profile-identity-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #fff1e6;
+  color: #c2540b;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.profile-identity-card__divider {
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  margin: 0 0 16px;
+}
+
+.profile-identity-card__stat {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.profile-identity-card__stat strong {
+  color: #1b2430;
+  font-weight: 700;
+}
+
+/* ---------------- Details card ---------------- */
+
+.profile-details-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 26px 26px 14px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+}
+
+.profile-details-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.profile-details-card__heading {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #1b2430;
+  margin: 0;
+}
+
+.profile-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.profile-field__label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.profile-field__value {
+  font-family: "Inter", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1b2430;
+}
+
+/* ---------------- Edit Profile modal/form ---------------- */
+
+.profile-edit-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.profile-edit-modal {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 26px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.profile-edit-modal__title {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1b2430;
+  margin: 0 0 18px;
+}
+
+.profile-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.profile-edit-field label {
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.profile-edit-field input,
+.profile-edit-field select {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  color: #1b2430;
+}
+
+.profile-edit-field input:focus,
+.profile-edit-field select:focus {
+  border-color: #ff8a3d;
+}
+
+.profile-edit-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .profile-page {
+    padding: 18px 16px 32px;
+  }
+
+  .profile-fields-grid {
+    grid-template-columns: 1fr;
+  }
+}

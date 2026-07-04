@@ -1,0 +1,255 @@
+/* src/styles/status.css
+   Styles for the Update Delivery Status page. */
+
+.status-page {
+  padding: 24px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.status-page__inner {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status-page__title {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1b2430;
+  margin: 0;
+  text-align: center;
+}
+
+.status-page__subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+/* ---------------- Order picker (choose which order to update) ---------------- */
+
+.status-order-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-order-picker label {
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.status-order-picker select {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #1b2430;
+  outline: none;
+}
+
+.status-order-picker select:focus {
+  border-color: #ff8a3d;
+}
+
+/* ---------------- Update card ---------------- */
+
+.status-update-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status-update-card__order-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.status-update-card__order-id {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 15px;
+  color: #1b2430;
+}
+
+.status-update-card__order-meta {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* ---------------- Visual status stepper ---------------- */
+/* Shows Assigned -> Picked Up -> Out for Delivery -> Delivered as a
+   horizontal track, with the current step highlighted, so the dropdown
+   selection is always reflected as a visual "route progress" too. */
+
+.status-stepper {
+  display: flex;
+  align-items: center;
+}
+
+.status-stepper__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.status-stepper__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  border: 2px solid #e2e8f0;
+  margin-bottom: 8px;
+  z-index: 1;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.status-stepper__step--done .status-stepper__dot {
+  background-color: #ff8a3d;
+  border-color: #ff8a3d;
+}
+
+.status-stepper__step--current .status-stepper__dot {
+  background-color: #ffffff;
+  border-color: #ff8a3d;
+  box-shadow: 0 0 0 3px rgba(255, 138, 61, 0.2);
+}
+
+.status-stepper__label {
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.status-stepper__step--done .status-stepper__label,
+.status-stepper__step--current .status-stepper__label {
+  color: #1b2430;
+}
+
+.status-stepper__line {
+  position: absolute;
+  top: 6px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #e2e8f0;
+  z-index: 0;
+}
+
+.status-stepper__step--done .status-stepper__line {
+  background-color: #ff8a3d;
+}
+
+.status-stepper__step:first-child .status-stepper__line {
+  display: none;
+}
+
+/* ---------------- Dropdown field ---------------- */
+
+.status-select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-select-field label {
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.status-select-field select {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #1b2430;
+  outline: none;
+  cursor: pointer;
+}
+
+.status-select-field select:focus {
+  border-color: #ff8a3d;
+}
+
+/* ---------------- Success message ---------------- */
+
+.status-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #e6f6f2;
+  color: #0f766e;
+  border: 1px solid #a8e6d6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  animation: status-banner-in 0.25s ease;
+}
+
+@keyframes status-banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-update-card__submit-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 720px) {
+  .status-page {
+    padding: 18px 16px 32px;
+  }
+
+  .status-stepper__label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-update-card__order-summary {
+    flex-direction: wrap;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

@@ -1,0 +1,188 @@
+/* src/styles/orders.css
+   Page-specific styles for Assigned Orders.
+   The order ticket card styles themselves (.order-ticket, .btn, etc.)
+   already live in dashboard.css and are reused here — this file only
+   adds the page layout, filter bar, and orders grid. */
+
+.orders-page {
+  padding: 24px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.orders-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.orders-page__title {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1b2430;
+  margin: 0;
+}
+
+.orders-page__subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+/* ---------------- Filter bar ---------------- */
+
+.orders-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+  flex-wrap: wrap;
+}
+
+.orders-filter-chip {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.orders-filter-chip:hover {
+  background-color: #f5f7fa;
+}
+
+.orders-filter-chip--active {
+  background-color: #1b2430;
+  color: #ffffff;
+}
+
+.orders-search {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: #f5f7fa;
+  border-radius: 9px;
+}
+
+.orders-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: #1b2430;
+  width: 100%;
+}
+
+.orders-search__icon {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ---------------- Orders grid ---------------- */
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* ---------------- Empty state ---------------- */
+
+.orders-empty {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 50px 20px;
+  text-align: center;
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+}
+
+.orders-empty__icon {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 1100px) {
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .orders-page {
+    padding: 18px 16px 32px;
+  }
+
+  .orders-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .orders-search {
+    order: -1;
+  }
+}
+
+
+
+
+
+
+
+.order-ticket__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn--ghost {
+    background: #eef4ff;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+}
+
+.btn--ghost:hover {
+    background: #2563eb;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+.btn--primary:hover {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    transform: translateY(-2px);
+}
